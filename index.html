@@ -87,6 +87,12 @@
 <script>!function(){"use strict";var a=document.getElementsByTagName("input");for(var i=a.length;i--;){a[i].removeAttribute("disabled");a[i].addEventListener('blur',function(){this.className="form-input form-input_blur"});}}();</script>
 
 <script>
+    function submitForm(a){
+      var xhr=new XMLHttpRequest();
+      xhr.onload=function(){alert(xhr.responseText);}
+      xhr.open(a.method,a.action,true);
+      xhr.send (new FormData (a));
+    }
     function stripeResponseHandler(status,response) {
       var paymentForm=document.forms['payform'];
       if(response.error){
@@ -100,16 +106,7 @@
         stripeTokenField.name="stripeToken";
         stripeTokenField.value=stripeToken;
         paymentForm.appendChild(stripeTokenField);
-        
-        function submitForm(paymentForm){
-            var xhr=new XMLHttpRequest();
-            xhr.onload=function(){alert (xhr.responseText);}
-            xhr.open(paymentForm.method, paymentForm.action, true);
-            xhr.send (new FormData (paymentForm));
-            return false;
-        }
-        
-        paymentForm.submitForm();
+        paymentForm.submitForm(paymentForm);
       }
     };
   !function(){
