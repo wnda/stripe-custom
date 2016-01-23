@@ -100,7 +100,16 @@
         stripeTokenField.name="stripeToken";
         stripeTokenField.value=stripeToken;
         paymentForm.appendChild(stripeTokenField);
-        paymentForm.submit();
+        
+        function submitForm(paymentForm){
+            var xhr=new XMLHttpRequest();
+            xhr.onload=function(){alert (xhr.responseText);}
+            xhr.open(paymentForm.method, paymentForm.action, true);
+            xhr.send (new FormData (paymentForm));
+            return false;
+        }
+        
+        paymentForm.submitForm();
       }
     };
   !function(){
