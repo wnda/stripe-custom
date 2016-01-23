@@ -93,7 +93,7 @@
       xhr.open(a.method,a.action,true);
       xhr.send (new FormData (a));
     }
-    function stripeResponseHandler(status,response) {
+    function stripeResponseHandler(status,response){
       var paymentForm=document.forms['payform'];
       if(response.error){
         document.getElementById('errors').textContent="Error: "+response.error.message;
@@ -108,7 +108,7 @@
         paymentForm.appendChild(stripeTokenField);
         paymentForm.submitForm(paymentForm);
       }
-    };
+    }
   !function(){
     "use strict";
     var paymentForm=document.forms['payform'];
