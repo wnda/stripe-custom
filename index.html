@@ -122,7 +122,7 @@
       e.preventDefault();
       var thisForm=this;
       document.getElementById('btnpay').setAttribute('disabled',true);
-      var baseAmount=document.getElementById('amountbase').value;
+      var baseAmount=document.getElementById('amountbase').value | 0;
       var amountField=document.getElementById('amount');
       function pound(a){return a * 100;};
       amountField.value=pound(baseAmount);
