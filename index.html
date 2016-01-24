@@ -126,7 +126,9 @@
       var amountField=document.getElementById('amount');
       function pound(a){return a * 100;};
       amountField.value=pound(baseAmount);
-      amountField.value>0?Stripe.card.createToken(thisForm,stripeResponseHandler);:alert('Please enter the payment amount');
+      if(amountField.value>0){
+      Stripe.card.createToken(thisForm,stripeResponseHandler);
+      }else{alert('Please enter a payment amount');document.getElementById('btnpay').removeAttribute('disabled');}
     });
   }();
 </script>
