@@ -115,16 +115,17 @@
         return submitForm();
       }
     }
-!function(){
+  !function(){
     "use strict";
     var paymentForm=document.forms['payform'];
     paymentForm.addEventListener('submit',function(e){
       e.preventDefault();
       var thisForm=this;
       document.getElementById('btnpay').setAttribute('disabled',true);
+      var amountBaseVal=document.getElementById('amountbase').value;
       var amountField=document.getElementById('amount');
-      var amountVal=function(){var amountBaseVal=document.getElementById('amountbase').value;return amountBaseVal * 100;}
-      amountField.value=amountVal;
+      var priceConverter=function(){return amountBaseVal * 100;};
+      amountField.value=return priceConverter();
       console.log(amountField.value);
       Stripe.card.createToken(thisForm,stripeResponseHandler);
     });
