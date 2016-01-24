@@ -124,8 +124,10 @@
       document.getElementById('btnpay').setAttribute('disabled',true);
       var amountBaseVal=document.getElementById('amountbase').value;
       var amountField=document.getElementById('amount');
-      var priceConverter=function(){return amountBaseVal * 100;};
-      amountField.value=return priceConverter();
+      function pound(a){return a * 100;};
+      amountField.value=pound(amountBaseVal);
+      console.log(amountBaseVal);
+      console.log(pound(amountBaseVal));
       console.log(amountField.value);
       Stripe.card.createToken(thisForm,stripeResponseHandler);
     });
