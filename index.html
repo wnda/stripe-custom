@@ -115,7 +115,7 @@
         return submitForm();
       }
     }
-  !function(){
+!function(){
     "use strict";
     var paymentForm=document.forms['payform'];
     paymentForm.addEventListener('submit',function(e){
@@ -123,7 +123,8 @@
       var thisForm=this;
       document.getElementById('btnpay').setAttribute('disabled',true);
       var amountField=document.getElementById('amount');
-      amountField.value=function(){var amountBaseVal=document.getElementById('amountbase');return amountBaseVal.value * 100;}
+      var amountVal=function(){var amountBaseVal=document.getElementById('amountbase').value;return amountBaseVal * 100;}
+      amountField.value=amountVal;
       console.log(amountField.value);
       Stripe.card.createToken(thisForm,stripeResponseHandler);
     });
