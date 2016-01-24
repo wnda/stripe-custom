@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
-<title>Stripe Custom Form Example &middot; A. M. Douglas</title>
+<title>Make a Payment &middot; A. M. Douglas</title>
 <link rel="icon" href="/assets/img/favicon.ico">
 <style>@charset "UTF-8";:root,html{box-sizing:border-box;font:100%/1.67 Roboto,Helmet,Freesans,sans-serif;color:hsl(240,60%,6.9%);text-decoration:none;width:100%;min-height:100%;-webkit-text-size-adjust:100%;*behavior:url(/assets/js/boxsizing.htc);*zoom:1}*,::before,::after{box-sizing:inherit;margin:0;padding:0;border:0;box-shadow:none;outline:0;font:inherit;*behavior:url(/assets/js/boxsizing.htc)}details,main,summary{display:block}a{color:inherit;cursor:pointer;text-decoration:none}textarea{resize:vertical}input,textarea{-webkit-border-radius:0}.grid{display:block;width:100%;margin:-8px;margin:-.5rem}.grid::before,.grid::after{display:table;content:''}.grid::after{clear:both}.cell{display:block;float:left;position:relative;min-height:192px;min-height:12rem;padding:8px;padding:.5rem;margin:0;margin-right:0;margin-top:calc(16px / 2);margin-bottom:calc(16px / 2);margin-left:calc(32px / 2);margin-top:calc(1rem / 2);margin-left:calc(2rem / 2);margin-bottom:calc(1rem / 2)}.cell-header{min-height:1rem}.cell,.cell-sm-1,.cell-sm-2,.cell-sm-3,.cell-sm-4,.cell-sm-5,.cell-sm-6,.cell-sm-7,.cell-sm-8,.cell-sm-9,.cell-sm-10,.cell-sm-11,.cell-sm-12,.cell-md-1,.cell-md-2,.cell-md-3,.cell-md-4,.cell-md-5,.cell-md-6,.cell-md-7,.cell-md-8,.cell-md-9,.cell-md-10,.cell-md-11,.cell-md-12,.cell-lg-1,.cell-lg-2,.cell-lg-3,.cell-lg-4,.cell-lg-5,.cell-lg-6,.cell-lg-7,.cell-lg-8,.cell-lg-9,.cell-lg-10,.cell-lg-11,.cell-lg-12{width:100%;width:calc(100% - 1rem)}@media screen and (min-width:30em){.cell-sm-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-sm-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-sm-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-sm-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-sm-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-sm-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-sm-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-sm-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-sm-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-sm-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem)}.cell-sm-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-sm-12{width:100%;width:calc(100% - 1rem)}}@media screen and (min-width:48em){.cell-md-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-md-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-md-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-md-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-md-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-md-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-md-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-md-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-md-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-md-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem)}.cell-md-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-md-12{width:100%;width:calc(100% - 1rem)}}@media screen and (min-width:62em){.cell-lg-1{width:8.333333%;width:calc(100% / 12 - 1rem)}.cell-lg-2{width:16.666667%;width:calc(100% / 6 - 1rem)}.cell-lg-3{width:25%;width:calc(100% / 4 - 1rem)}.cell-lg-4{width:33.333333%;width:calc(100% / 3 - 1rem)}.cell-lg-5{width:41.666667%;width:calc(100% / (12 / 5) - 1rem)}.cell-lg-6{width:50%;width:calc(100% / 2 - 1rem)}.cell-lg-7{width:58.333333%;width:calc(100% / (12 / 7) - 1rem)}.cell-lg-8{width:66.666667%;width:calc(100% / (3 / 2) - 1rem)}.cell-lg-9{width:75%;width:calc(100% / (4 / 3) - 1rem)}.cell-lg-10{width:83.333333%;width:calc(100% / (6 / 5) - 1rem) }.cell-lg-11{width:91.666667%;width:calc(100% / (12 / 11) - 1rem)}.cell-lg-12{width:100%;width:calc(100% - 1rem)}}[hidden]{display:none!important}.block{background:hsl(240,4%,91%);border-top:1px solid hsl(240,4%,63%);transition:.2s cubic-bezier(.4,1,.2,1) background;will-change:background}.block:hover{background:hsl(240,60%,6.9%);border-top:1px solid hsl(240,60%,6.9%)}.block:hover a{color:hsl(0,0%,100%)}.block:after{content:'';display:block;padding-bottom:100%}.block.cell-blog:after{padding-bottom:100vw}@media screen and (min-width:48em){.block.cell-blog:after{content:'';display:block;padding-bottom:100%}}.blog-article,.product,.repo{position:absolute;top:8px;left:8px;right:8px;bottom:8px;overflow:hidden}[disabled]{opacity:.67;cursor:not-allowed}.tags{position:absolute;bottom:0;right:0;font-weight:500;font-size:.8rem;text-transform:uppercase;line-height:1}.job-title~p{margin-bottom:.8rem}.formfield{position:relative;font-size:16px;font-size:1rem;padding:20px 0;min-height:64px}.form-input,.form-label{font-size:16px;font-size:1rem;display:block;width:100%;text-align:left}.form-input{border:none;border-bottom:1px solid hsla(240,60%,6.9%,.5);padding:4px 0;color:inherit}.form-label{bottom:0;color:hsla(240,60%,6.9%,.5);left:0;right:0;pointer-events:none;top:24px;white-space:nowrap;transition-duration:.2s;transition-timing-function:cubic-bezier(.4,0,.2,1)}.form-label,.form-label:after{position:absolute;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.2s}.form-input.form-input_blur~.form-label:after,.form-input:active,.form-input:focus,.form-input:valid{border-color:hsl(240,60%,6.9%)}.form-input[disabled]~.form-label{color:hsla(240,60%,6.9%,.5)}.form-input.form-input_blur~.form-label,.form-input:active~.form-label,.form-input:focus~.form-label,.form-input:valid~.form-label{color:hsl(240,60%,6.9%);font-size:12px;font-size:.75rem;font-weight:500;top:4px;top:.25rem;visibility:visible}.form-label:after{font-size:12px;font-size:.75rem;bottom:20px;bottom:1.25rem;content:'';height:2px;left:45%;transition-duration:.2s;transition-timing-function:cubic-bezier(.4,0,.2,1);visibility:hidden;width:10px}.form-input.form-input_blur~.form-label:after,.form-input:focus~.form-label:after,.form-input:invalid~.form-label:after,.form-input:valid~.form-label:after{left:0;width:100%}.form-input.form-input_blur~.form-label:after,.form-input:focus~.form-label:after,.form-input:valid~.form-label:after{visibility:visible}.form-input:valid~.form-label:after{content:'Ok!';color:hsl(122.4,39.4%,49.2%)}.form-input:invalid~.form-label:after{color:hsl(4.1,89.6%,58.4%)}.form-label_radio{top:-18px;text-align:center}.form-input_expand{min-height:32px;width:100%;min-width:100%;max-width:100%}.form-input:invalid~.form-label:after{content:attr(title)}.button{overflow:hidden;letter-spacing:3px;text-transform:uppercase;vertical-align:middle;background:0 0;border:2px solid transparent;color:hsl(240,60%,6.9%);position:relative;height:36px;font-size:1.313rem;font-weight:400;outline:0;cursor:pointer;text-decoration:none;line-height:1.6}.button:active,.button:focus:not(:active),.button:hover{box-shadow:0 2px 0 hsl(240,60%,6.9%)}.button[disabled]{color:hsl(240,60%,6.9%);cursor:auto;background-color:transparent}h1,h2{font-size:2rem;font-weight:500}h3{font-size:1.8rem;font-weight:500}h4{font-size:1.175rem;font-weight:500}p,span{font-size:1.175rem;font-weight:400}@media screen and (min-width:48em){h1,h2{font-size:1.67rem;font-size:calc(2rem + 1 * ((100vw - 30em) / 32))}h3{font-size:1.3rem;font-size:calc(1.8rem + .8 * ((100vw - 30em) / 32))}h4,p,span,strong{font-size:1rem;font-size:calc(.8rem + .3 * ((100vw - 30em) / 32))}strong{font-weight:500}.block p:nth-child(3),.block p:nth-child(4){font-size:80%;font-size:calc(.67rem + .2 * ((100vw - 30em) / 32))}}#feedback{color:hsl(4.1,89.6%,58.4%)}</style>
 <script src="https://js.stripe.com/v2/"></script>
@@ -25,7 +25,7 @@
   
       <div class="formfield cell cell-sm-12 cell-md-12 cell-lg-12">
         <label>
-          <input type="email" class="form-input" name="email" title="Please enter your email address" pattern=".{5,40}" required="" data-stripe="email">
+          <input type="email" class="form-input" id="email" title="Please enter your email address" pattern=".{5,40}" required="" data-stripe="email">
           <span class="form-label" title="∗ Required">Your Email</span>
         </label>
       </div>
@@ -35,7 +35,7 @@
           <input type="number" class="form-input" id="amountbase" title="Please enter the amount in whole pounds" required="">
           <span class="form-label" title="∗ Required">Amount to pay (£)</span>
         </label>
-          <input type="hidden" id="amount" name="amount" value="">
+          <input type="hidden" id="amount" value="">
       </div>
   
       <div class="formfield cell cell-sm-12 cell-md-12 cell-lg-12">
@@ -95,24 +95,22 @@
         document.getElementById('feedback').textContent=response.error.message;
         document.getElementById('btnpay').removeAttribute('disabled');
       }else{
+        var dataAmount=document.getElementById('amount');
+        var dataEmail=document.getElementById('email');
         var stripeToken=response.id;
-        var stripeTokenField=document.createElement('input');
-        stripeTokenField.type="hidden";
-        stripeTokenField.id="stripeToken";
-        stripeTokenField.name="stripeToken";
-        stripeTokenField.value=stripeToken;
-        paymentForm.appendChild(stripeTokenField);
+        var formString="amount="+dataAmount.value+"&stripeToken="+stripeToken+"&email="+dataEmail.value;
         
-        function submitForm(){
+        function submitForm(f){
           var xhr=new XMLHttpRequest();
-          xhr.onload=function(){console.log(xhr.responseText);}
+          xhr.onload=function(){window.location=xhr.responseText;}
           xhr.onerror=function(){document.getElementById('feedback').textContent="Sorry, there was a technical error. Please try again later.";console.log(xhr.responseText);}
           xhr.open(paymentForm.method,paymentForm.action,true);
-          xhr.send(new FormData(paymentForm));
+          xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+          xhr.send(f);
           return false;
         }
         
-        return submitForm();
+        return submitForm(formString);
       }
     }
   !function(){
