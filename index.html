@@ -19,7 +19,7 @@
 
 <div class="cell cell-sm-12 cell-md-6 cell-lg-4">
   <form action="/payments" method="POST" id="payform">
-    <h2 id="feedback"></h2>
+    <p id="feedback"></p>
 
     <fieldset class="grid">
   
@@ -90,7 +90,7 @@
     function stripeResponseHandler(status,response){
       var paymentForm=document.forms['payform'];
       if(response.error){
-        document.getElementById('feedback').textContent="Error: "+response.error.message;
+        document.getElementById('feedback').textContent=response.error.message;
         document.getElementById('btnpay').removeAttribute('disabled');
       }else{
         var stripeToken=response.id;
@@ -104,7 +104,7 @@
         function submitForm(){
           var xhr=new XMLHttpRequest();
           xhr.onload=function(){console.log(xhr.responseText);}
-          xhr.onerror=function(){document.getElementById('feedback').textContent="Sorry, there was a technical error";console.log(xhr.responseText);}
+          xhr.onerror=function(){document.getElementById('feedback').textContent="Sorry, there was a technical error. Please try again later.";console.log(xhr.responseText);}
           xhr.open(paymentForm.method,paymentForm.action,true);
           xhr.send (new FormData(paymentForm));
           return false;
