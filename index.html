@@ -122,13 +122,10 @@
       e.preventDefault();
       var thisForm=this;
       document.getElementById('btnpay').setAttribute('disabled',true);
-      var amountBaseVal=document.getElementById('amountbase').value;
+      var baseAmount=document.getElementById('amountbase').value;
       var amountField=document.getElementById('amount');
       function pound(a){return a * 100;};
-      amountField.value=pound(amountBaseVal);
-      console.log(amountBaseVal);
-      console.log(pound(amountBaseVal));
-      console.log(amountField.value);
+      amountField.value=pound(baseAmount);
       Stripe.card.createToken(thisForm,stripeResponseHandler);
     });
   }();
