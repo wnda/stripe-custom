@@ -25,16 +25,17 @@
   
       <div class="formfield cell cell-sm-12 cell-md-12 cell-lg-12">
         <label>
-          <input type="email" class="form-input" name="email" title="Please enter your email address" pattern=".{5,40}" required="">
+          <input type="email" class="form-input" name="email" title="Please enter your email address" pattern=".{5,40}" required="" data-stripe="email">
           <span class="form-label" title="∗ Required">Your Email</span>
         </label>
       </div>
   
       <div class="formfield cell cell-sm-12 cell-md-12 cell-lg-12">
         <label>
-          <input type="text" class="form-input" name="amount" title="Please enter the amount to pay" pattern="[0-9]{1,}" required="">
+          <input type="number" class="form-input" id="amountbase" title="Please enter the amount to pay" pattern="[0-9]{1,}" required="">
           <span class="form-label" title="∗ Required">Amount to pay (£)</span>
         </label>
+          <input type="hidden" id="amount" name="amount" value="">
       </div>
   
       <div class="formfield cell cell-sm-12 cell-md-12 cell-lg-12">
@@ -121,6 +122,9 @@
       e.preventDefault();
       var thisForm=this;
       document.getElementById('btnpay').setAttribute('disabled',true);
+      var amountField=document.getElementById('amount');
+      amountField.value=function(){var amountBaseVal=document.getElementById('amountbase').value;return amountBaseVal * 100;}
+      console.log(amountField.value);
       Stripe.card.createToken(thisForm,stripeResponseHandler);
     });
   }();
