@@ -103,9 +103,9 @@
         
         function submitForm(){
           var xhr=new XMLHttpRequest();
-          xhr.onload=function(){alert(xhr.responseText);}
+          xhr.onload=function(){console.log(xhr.responseText);}
           xhr.open(paymentForm.method,paymentForm.action,true);
-          xhr.send (new FormData (paymentForm));
+          xhr.send (new FormData(paymentForm));
           return false;
         }
         
